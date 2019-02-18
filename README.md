@@ -20,9 +20,3 @@
 - **KvitkouNet.Logic.Common** - общие части сервисного слоя (доменные модели, интерфейсы и т.д)
 - **KvitkouNet.Data** - слой работы с данными (хранилищем)
 
-## Правила разработки ##
-
-- Работа над проектом ведется в рамках-мини команд
-- Основной процесс работы с git ведется по [GitFlow](https://danielkummer.github.io/git-flow-cheatsheet/index.ru_RU.html)
-- Всю основную информаци по проекту помещаем в *wiki*
-- После завершения фичи создается [merge-request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html) и назначается на А.Шадуро
