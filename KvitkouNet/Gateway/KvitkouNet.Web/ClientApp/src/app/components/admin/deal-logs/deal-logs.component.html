@@ -1,0 +1,62 @@
+<main role="main">
+  <form [formGroup]="dealLogsFormGroup" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="dateFrom">Начальная дата:</label>
+        <input type="date" class="form-control" id="dateFrom" formControlName="dateFrom">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="dateTo">Конечная дата:</label>
+        <input type="date" class="form-control" id="dateTo" formControlName="dateTo">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="ticketId">Id билета:</label>
+        <input type="text" class="form-control" id="ticketId" formControlName="ticketId" placeholder="ticketId">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="ownerId">Id владельца:</label>
+          <input type="text" class="form-control" id="ownerId" formControlName="ownerId">
+        </div>
+      </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="recieverId">Id получателя:</label>
+        <input type="text" class="form-control" id="recieverId" formControlName="recieverId" placeholder="recieverId">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="type">Тип:</label>
+        <input type="number" class="form-control" id="type" formControlName="type" placeholder="type">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="minPrice">Min цена:</label>
+        <input type="number" class="form-control" id="minPrice" formControlName="minPrice" placeholder="minPrice">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="maxPrice">Max цена:</label>
+        <input type="number" class="form-control" id="maxPrice" formControlName="maxPrice" placeholder="maxPrice">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div class="album py-5 bg-light">
+    <table mdbTable>
+      <thead>
+        <tr>
+          <th *ngFor="let head of dealLogTableHeaders" scope="col">{{head}} </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let el of dealLogs">
+          <th scope="row">{{el.id}}</th>
+          <th>{{el.eventDate}}</th>
+          <th>{{el.ownerId}}</th>
+          <th>{{el.recieverId}}</th>
+          <th>{{el.price}}</th>
+          <th>{{el.type}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

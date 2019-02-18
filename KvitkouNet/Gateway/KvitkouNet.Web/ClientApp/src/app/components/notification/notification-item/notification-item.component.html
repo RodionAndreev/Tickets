@@ -1,0 +1,14 @@
+<div class="my-3 p-3 bg-white rounded shadow-sm" *ngIf="userNotifications.length > 0">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Уведомления</h6>
+    <ul>
+      <li *ngFor="let userNotification of userNotifications">
+          <div class="media text-muted pt-3">
+              <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">{{userNotification.message.title}}</strong>
+                <p>{{userNotification.message.text}}</p>
+                <button type="button" class="btn btn-dark" (click)="closeNotification(userNotification.notificationId)">Закрыть</button>
+              </div>
+          </div>
+      </li>
+    </ul>
+  </div>

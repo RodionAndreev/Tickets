@@ -1,0 +1,140 @@
+<div class="container">
+  <form
+    class="form-horizontal"
+    [formGroup]="searchTicketForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <fieldset>
+      <!-- Button -->
+      <div class="form-group">
+        <div class="col-md-8">
+          <a class="btn btn-info">Tickets</a> &nbsp;
+          <a
+            class="btn btn-outline-info"
+            [routerLink]="['/search-user']"
+            routerLinkActive="active"
+            >Users</a
+          >
+        </div>
+      </div>
+
+      <!-- Form Name -->
+      <legend>Search Tickets</legend>
+
+      <div *ngIf="error">
+        Unable to get the last search.
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Name</label>
+        <div class="col-md-4">
+          <input
+            formControlName="name"
+            type="text"
+            placeholder="Enter Ticket Name"
+            class="form-control input-md"
+          />
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Category</label>
+        <div class="col-md-4">
+          <select formControlName="category" class="form-control input-md">
+            <option value="" selected>Enter Ticket Category</option>
+            <option value="0">Unknown</option>
+            <option value="1">Movie</option>
+            <option value="2">Concerts</option>
+            <option value="4">Theater</option>
+            <option value="8">Ballet</option>
+            <option value="16">Sport</option>
+            <option value="32">Parties</option>
+            <option value="64">Trainings</option>
+            <option value="128">Exhibitions</option>
+            <option value="256">Circus</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">City</label>
+        <div class="col-md-4">
+          <input
+            formControlName="city"
+            type="text"
+            placeholder="Enter City"
+            class="form-control input-md"
+          />
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Date From</label>
+        <div class="col-md-4">
+          <input
+            formControlName="dateFrom"
+            type="date"
+            placeholder="Enter Start Date"
+            class="form-control input-md"
+          />
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Date To</label>
+        <div class="col-md-4">
+          <input
+            formControlName="dateTo"
+            type="date"
+            placeholder="Enter Finish Date"
+            class="form-control input-md"
+          />
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Min Price</label>
+        <div class="col-md-4">
+          <input
+            formControlName="minPrice"
+            type="number"
+            placeholder="Enter Min Price"
+            class="form-control input-md"
+          />
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Max Price</label>
+        <div class="col-md-4">
+          <input
+            formControlName="maxPrice"
+            type="number"
+            placeholder="Enter Max Price"
+            class="form-control input-md"
+          />
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <div class="col-md-8">
+          <button type="submit" class="btn btn-info">
+            Search
+          </button>
+          &nbsp;
+          <button class="btn btn-info" *ngIf="authenticated" (click)="previousSearch()">
+            Previous search
+          </button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

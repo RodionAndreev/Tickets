@@ -1,0 +1,36 @@
+<div class="album py-5"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-5" *ngFor="let ticket of tickets">
+      <div class="card h-100">
+        <div class="card-header">
+          <p class="card-text text-left">{{ticket.status}}</p>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ ticket.name }}</h5>
+
+          <button
+            type="button"
+            class="btn btn-sm btn-primary "
+            (click)="goToTicket(ticket.id)"
+          >
+            View
+          </button>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">{{
+            ticket.createdDate | date: "hh:mm MMMM d yyyy"
+          }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item" *ngFor="let page of pages">
+      <a class="page-link" [routerLink]="['/tickets', page]">{{ page }}</a>
+    </li>
+  </ul>
+</nav>

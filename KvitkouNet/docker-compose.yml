@@ -1,0 +1,152 @@
+version: '3.4'
+
+services:
+   kvitkounet.web:
+    image: ${DOCKER_REGISTRY}kvitkounetweb
+    build:
+      context: Gateway
+      dockerfile: KvitkouNet.Web/Dockerfile
+    environment:
+      - ASPNETCORE_URLS="https://+;http://+"
+      - ASPNETCORE_HTTPS_PORT=5002
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=crypticpassword
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - ./aspnetapp.pfx:/https/aspnetapp.pfx
+    depends_on:
+      - rabbit
+      - identityserver
+      - logging.web
+      - usermanagement.web
+      - adminpanel.web
+      - search.web
+      - security.web
+      - tickets.web
+      - statisticonline.web
+      - statisticuser.web
+    ports:
+      - 5001:80
+      - 5002:443
+
+   identityserver:
+    image: ${DOCKER_REGISTRY}identityserver
+    build:
+      context: IdentityServer
+      dockerfile: IdentityServer/Dockerfile
+
+   usermanagement.web:
+    image: ${DOCKER_REGISTRY}usersweb
+    build:
+      context: .
+      dockerfile: UserManagement/UserManagement.Web/Dockerfile
+    ports:
+      - 5003:80
+
+   adminpanel.web:
+    image: ${DOCKER_REGISTRY}adminpanelweb
+    build:
+      context: ./
+      dockerfile: AdminPanel/AdminPanel.Web/Dockerfile
+
+   logging.web:
+    image: ${DOCKER_REGISTRY}loggingweb
+    build:
+      context: ./
+      dockerfile: Logging/Logging.Web/Dockerfile
+
+   tickets.web:
+    image: ${DOCKER_REGISTRY}ticketsweb
+    build:
+      context: .
+      dockerfile: TicketManagement/TicketManagement.Web/Dockerfile
+    env_file:
+      - host.env
+
+   search.web:
+    image: ${DOCKER_REGISTRY}searchweb
+    build:
+      context: .
+      dockerfile: Search/Search.Web/Dockerfile
+    environment:
+      - ConnectionStrings__ElasticSearchConnection=http://elasticsearch:9200
+      - ConnectionStrings__RabbitConnection=host=rabbit
+    volumes:
+      - searchdata:/app/Database   
+    ports:
+      - 5008:80
+    depends_on:
+      - elasticsearch
+
+   usersettings.web:
+    image: ${DOCKER_REGISTRY}usersettingsgweb
+    build:
+      context: ./
+      dockerfile: UserSettings/UserSettings.Web/Dockerfile
+    ports:
+      - 5009:80
+
+   rabbit:
+    image: rabbitmq:management
+    ports:
+      - 4369:4369
+      - 5671:5671
+      - 5672:5672
+      - 25672:25672
+      - 15671:15671
+      - 15672:15672
+    volumes:
+      - ./rabbitmq-isolated.conf:/etc/rabbitmq/rabbitmq.config
+
+   elasticsearch:
+    image: elasticsearch:6.4.3
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+   chat.web:
+    image: ${DOCKER_REGISTRY}chatweb
+    build:
+      context: ./
+      dockerfile: Chat/Chat.Web/Dockerfile
+    ports:
+      - 5010:80
+
+   security.web:
+    image: ${DOCKER_REGISTRY}securityweb
+    build:
+      context: ./
+      dockerfile: Security/Security.Web/Dockerfile
+    ports:
+      - 5011:80
+
+   notification.web:
+    image: ${DOCKER_REGISTRY}notificationweb    
+    build:
+      context: ./
+      dockerfile: Notification/Notification.Web/Dockerfile
+    ports:
+      - 5012:80
+
+   statisticonline.web:
+    image: ${DOCKER_REGISTRY}statisticonlineweb
+    build:
+      context: ./StatisticOnline
+      dockerfile: ./StatisticOnline.Web/Dockerfile
+    ports:
+      - 5050:80
+
+   statisticuser.web:
+    image: ${DOCKER_REGISTRY}statisticuserweb
+    build:
+      context: ./StatisticUser
+      dockerfile: ./StatisticUser.Web/Dockerfile
+    ports:
+      - 5060:80
+
+volumes:
+  esdata:
+    driver: local
+  searchdata:
+    driver: local

@@ -1,0 +1,16 @@
+<main role="main" class="container">
+    <div class="row backgroun-grid-main" >
+        <div class="col-md-1 themed-grid-col">Login</div>
+        <div class="col-md-2 themed-grid-col">Full Name</div>
+        <div class="col-md-3 themed-grid-col">Sex</div>
+        <div class="col-md-3 themed-grid-col">Raiting</div>
+        <div class="col-md-1 themed-grid-col">Reg. Date</div>
+      </div>
+      <div class="row" *ngFor="let user of users">
+          <div class="col-md-1 themed-grid-col">{{ user.login }}</div>
+          <div class="col-md-2 themed-grid-col">{{ user.lastName }} {{ user.firstName }}</div>
+          <div class="col-md-3 themed-grid-col">{{ user.sex }}</div>
+          <div class="col-md-3 themed-grid-col">{{ user.rating }}</div>
+          <div class="col-md-1 themed-grid-col">{{ user.registrationDate }}</div>
+        </div>
+</main>

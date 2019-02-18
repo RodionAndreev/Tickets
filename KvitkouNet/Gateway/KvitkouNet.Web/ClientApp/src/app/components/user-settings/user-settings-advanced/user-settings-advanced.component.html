@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      [checked]="userSettingsModel?.isGetTicketInfo"
+      (click)="onGetInfoChanged($event.target.checked)"
+      id="defaultCheck1"
+    />
+    <label class="form-check-label" for="defaultCheck1">
+      Получать уведомления когда кто-то заинтересовался моим билетом.
+    </label>
+  </div>
+
+  <div class="form-check">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      [checked] ="userSettingsModel?.isPrivateAccount"
+      (click)="onPrivateChanged($event.target.checked)"
+      id="defaultCheck2"
+    />
+    <label class="form-check-label" for="defaultCheck2">
+      Не отображать мой почтовый адрес при просмотре профиля.
+    </label>
+  </div> 
+  <br />
+  <div>
+    <button class="btn btn-primary" (click)="onPut()" type="submit">Сохранить</button>
+  </div>
+</div>

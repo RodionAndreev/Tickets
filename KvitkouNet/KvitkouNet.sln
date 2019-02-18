@@ -1,0 +1,55 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KvitkouNet.Web", "Gateway\KvitkouNet.Web\KvitkouNet.Web.csproj", "{CA8CA0C8-CD64-45F8-BA1B-33B0AD399341}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KvitkouNet.Logic", "Gateway\KvitkouNet.Logic\KvitkouNet.Logic.csproj", "{B9219E1B-8BD3-4FD4-BC02-084B54FB31D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KvitkouNet.Data", "Gateway\KvitkouNet.Data\KvitkouNet.Data.csproj", "{55909918-0B9A-46A1-AB47-9B5BF6D13E8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KvitkouNet.Logic.Common", "Gateway\KvitkouNet.Logic.Comon\KvitkouNet.Logic.Common.csproj", "{BBA9F4DB-0E2B-4169-8B2C-31BAB8710E2F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2D0D8192-E1C9-4ED7-851C-0B14228546F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KvitkouNet.Messages", "Gateway\KvitkouNet.Messages\KvitkouNet.Messages.csproj", "{6DCBE3A4-92A2-4B6E-817C-E721A8F81B33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA8CA0C8-CD64-45F8-BA1B-33B0AD399341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8CA0C8-CD64-45F8-BA1B-33B0AD399341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8CA0C8-CD64-45F8-BA1B-33B0AD399341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8CA0C8-CD64-45F8-BA1B-33B0AD399341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9219E1B-8BD3-4FD4-BC02-084B54FB31D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9219E1B-8BD3-4FD4-BC02-084B54FB31D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9219E1B-8BD3-4FD4-BC02-084B54FB31D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9219E1B-8BD3-4FD4-BC02-084B54FB31D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55909918-0B9A-46A1-AB47-9B5BF6D13E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55909918-0B9A-46A1-AB47-9B5BF6D13E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55909918-0B9A-46A1-AB47-9B5BF6D13E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55909918-0B9A-46A1-AB47-9B5BF6D13E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBA9F4DB-0E2B-4169-8B2C-31BAB8710E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA9F4DB-0E2B-4169-8B2C-31BAB8710E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA9F4DB-0E2B-4169-8B2C-31BAB8710E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA9F4DB-0E2B-4169-8B2C-31BAB8710E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D0D8192-E1C9-4ED7-851C-0B14228546F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D0D8192-E1C9-4ED7-851C-0B14228546F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D0D8192-E1C9-4ED7-851C-0B14228546F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D0D8192-E1C9-4ED7-851C-0B14228546F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCBE3A4-92A2-4B6E-817C-E721A8F81B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCBE3A4-92A2-4B6E-817C-E721A8F81B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCBE3A4-92A2-4B6E-817C-E721A8F81B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCBE3A4-92A2-4B6E-817C-E721A8F81B33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA2255C6-FC6B-49F5-A8EF-5F3FBB80F746}
+	EndGlobalSection
+EndGlobal

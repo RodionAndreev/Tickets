@@ -1,0 +1,17 @@
+<main role="main" class="text-center">
+  <form [formGroup]="rightForm" class="form-signin">
+    <img class="mb-4" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">New right</h1>
+    <label for="inputLogin" class="sr-only">Name</label>
+    <input type="login" id="rightName" formControlName="rightName" class="form-control" placeholder="Name"
+    (keyup)="onRightNameChanged()" required autofocus>
+    <hr _ngcontent-c10="" class="mb-4">
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onAddRight()">Create</button>
+    <div class="alert alert-success" role="alert" *ngIf="secceded">
+      <strong>Success!</strong>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+      <strong>{{ errorMessage }}</strong>
+    </div>
+  </form>
+  </main>

@@ -1,0 +1,69 @@
+<form [formGroup]="functionForm">
+    <div class="form-row">
+      <div class="col">
+      </div>
+      <div class="col-7">
+        <label class="sr-only" for="functionName">Function Name</label>
+        <input type="text" class="form-control mb-2" id="functionName" formControlName="functionName" placeholder="Function Name">
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary mb-2" (click)="onSearchFunctions()">Search</button>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+        <strong>{{ errorMessage }}</strong>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center" [class.active]="item === selectedFunction" *ngFor="let item of functions"
+                (click)="onSelectFunction(item)">{{ item.name }}
+                <button type="button" (click)="onDeleteFunction(item)" class="btn btn-outline-danger btn-sm">-</button>
+              </li>
+            </ul>
+            <nav aria-label="Page navigation example" *ngIf="pages > 1">
+              <ul class="pagination">
+                <li class="page-item" [class.disabled]="currentPage==1">
+                  <a class="page-link" (click)="onPreviosePage()" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item" [class.active]="currentPage===(i + 1)" *ngFor="let item of Arr(pages); index as i">
+                  <a class="page-link" (click)="onSearchPage(i+1)">{{ i+1 }}</a></li>
+                <li class="page-item" [class.disabled]="currentPage==pages">
+                  <a class="page-link" (click)="onNextPage()" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col">
+              <div class="form-group row"*ngIf="selectedFunction">
+                  <label for="featureName" class="col-sm-2 col-form-label">Feature:</label>
+                  <div class="col-sm-10">
+                      <label id="featureName" class="col-sm-2 col-form-label">{{ selectedFunction.featureName }}</label>
+                  </div>
+                </div>
+              <ul class="list-group">
+                <li class="list-group-item" [class.active]="right === selectedRight" (click)="onSelectRight(right)"
+                *ngFor="let right of selectedFunction?.accessRights">{{ right.name }}</li>
+              </ul>
+              <div class="form-row">
+                <button type="button" *ngIf="selectedRight" class="btn btn-outline-danger" (click)="onDeleteRight()"> - </button>
+                <button type="button" *ngIf="selectedFunction" class="btn btn-outline-success"  (click)="onAddRight()">+</button>
+                <div class="dropdown" *ngIf="addPressed">
+                  <input class="form-control mb-2" type="text" id="rightNameSearch" data-toggle="dropdown" aria-haspopup="true"
+                  autocomplete="off" aria-expanded="false" formControlName="rightNameSearch" (keyup)="onAddedSearch()">
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                    <a class="dropdown-item" (click)="onAddRightSelected(right)" *ngFor="let right of rightsFound">{{ right.name }}</a>
+                  </div>
+                </div>
+                <button type="button" *ngIf="selectedAddRight" class="btn btn-outline-success"
+                (click)="onAddSelectedRight()">Add</button>
+               </div>
+          </div>
+        </div>
+      </div>
+    </form>

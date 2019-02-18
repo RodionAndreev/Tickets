@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+  <a class="navbar-brand" [routerLink]="['/security']">Security</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
+  aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample09">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rights</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown09">
+          <a class="dropdown-item" [routerLink]="['rights/add']">Add</a>
+          <a class="dropdown-item" [routerLink]="['rights']">Search</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Functions</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown09">
+          <a class="dropdown-item" [routerLink]="['functions/add']">Add</a>
+          <a class="dropdown-item" [routerLink]="['functions']">Search</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Features</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown09">
+          <a class="dropdown-item" [routerLink]="['features/add']">Add</a>
+          <a class="dropdown-item" [routerLink]="['features']">Search</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Roles</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown09">
+          <a class="dropdown-item" [routerLink]="['roles/add']">Add</a>
+          <a class="dropdown-item" [routerLink]="['roles']">Search</a>
+        </div>
+      </li>
+    </ul>
+    <form [formGroup]="userSearchForm" class="form-inline my-2 my-md-0">
+        <div class="dropdown">
+            <input class="form-control mb-2" style="width: 500px" placeholder="Search User" type="text" id="userSearch" data-toggle="dropdown"
+            aria-haspopup="true" autocomplete="off" aria-expanded="false" formControlName="userSearch" (keyup)="onSearchUser()">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+              <a class="dropdown-item" [routerLink]="['user', user.userId]" routerLinkActive="active"
+              *ngFor="let user of usersFound">{{ user.lastName }} {{ user.firstName }} {{ user.middleName }}</a>
+            </div>
+          </div>
+    </form>
+  </div>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous" class=""></script>
+

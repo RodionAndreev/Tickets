@@ -1,0 +1,38 @@
+.container {
+
+    width: 100%;
+    padding-top: 7%;
+    padding-bottom: 4%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+.themed-grid-col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgba(231, 227, 238, 0.15);
+  border: 1px solid rgba(234, 231, 238, 0.2);
+}
+.backgroun-grid-main{
+  background-color: rgba(86, 81, 95, 0.15);
+}
+@media (min-width: 768px) {
+  .col-md-1 {
+    -ms-flex: 0 0 15%;
+    flex: 0 0 15%;
+    max-width: 15%;
+}
+.col-md-2 {
+  -ms-flex: 0 0 40%;
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+.col-md-3 {
+  -ms-flex: 0 0 7%;
+  flex: 0 0 7%;
+  max-width: 7%;
+}
+}

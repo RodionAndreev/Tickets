@@ -1,0 +1,53 @@
+<main role="main">
+    <form [formGroup]="ticketLogsFormGroup" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="dateFrom">Начальная дата:</label>
+              <input type="date" class="form-control" id="dateFrom" formControlName="dateFrom">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="dateTo">Конечная дата:</label>
+                <input type="date" class="form-control" id="dateTo" formControlName="dateTo">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="ticketId">Id билета:</label>
+                <input type="text" class="form-control" id="ticketId" formControlName="ticketId" placeholder="ticketId">
+            </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-4">
+                  <label for="ticketName">Имя билета:</label>
+                  <input type="text" class="form-control" id="ticketName" formControlName="ticketName" placeholder="ticketName">
+                </div>
+              <div class="form-group col-md-4">
+                  <label for="actionType">Тип:</label>
+                  <input type="number" class="form-control" id="actionType" formControlName="actionType" placeholder="actionType">
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="description">Описание:</label>
+                  <input type="text" class="form-control" id="description" formControlName="description" placeholder="description">
+              </div>
+            </div>
+       <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+<div class="album py-5 bg-light">
+  <table mdbTable >
+    <thead>
+      <tr>
+        <th *ngFor="let head of ticketLogTableHeaders" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of ticketLogs">
+        <th scope="row">{{el.id}}</th>
+        <th>{{el.eventDate}}</th>
+        <th>{{el.userId}}</th>
+        <th>{{el.ticketId}}</th>
+        <th>{{el.ticketName}}</th>
+        <th>{{el.actionType}}</th>
+        <th>{{el.description}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</main>

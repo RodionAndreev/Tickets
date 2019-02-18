@@ -1,0 +1,103 @@
+<form [formGroup]="rolesForm">
+    <div class="form-row">
+      <div class="col">
+      </div>
+      <div class="col-7">
+        <label class="sr-only" for="roleName">Role name</label>
+        <input type="text" class="form-control mb-2" id="roleName" formControlName="roleName" placeholder="Role Name">
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary mb-2" (click)="onSearchRoles()">Search</button>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+        <strong>{{ errorMessage }}</strong>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center" [class.active]="item === selectedRole" *ngFor="let item of roles"
+                (click)="onSelectRole(item)">{{ item.name }}
+                <button type="button" (click)="onDeleteRole(item)" class="btn btn-outline-danger btn-sm">-</button>
+              </li>
+            </ul>
+            <nav aria-label="Page navigation example" *ngIf="pages > 1">
+              <ul class="pagination">
+                <li class="page-item" [class.disabled]="currentPage==1">
+                  <a class="page-link" (click)="onPreviosePage()" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item" [class.active]="currentPage===(i + 1)" *ngFor="let item of Arr(pages); index as i">
+                  <a class="page-link" (click)="onSearchPage(i+1)">{{ i+1 }}</a></li>
+                <li class="page-item" [class.disabled]="currentPage==pages">
+                  <a class="page-link" (click)="onNextPage()" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col">
+              <label class="col-sm-2 col-form-label">Functions</label>
+              <ul class="list-group">
+                <li class="list-group-item" [class.active]="function === selectedFunction" (click)="onSelectFunction(function)"
+                *ngFor="let function of selectedRole?.accessFunctions">{{ function.name }}</li>
+              </ul>
+              <div class="form-row">
+                <button type="button" *ngIf="selectedFunction" class="btn btn-outline-danger" (click)="onDeleteFunction()"> - </button>
+                <button type="button" *ngIf="selectedRole" class="btn btn-outline-success"  (click)="onAddFunction()">+</button>
+                <div class="dropdown" *ngIf="addFunctionPressed">
+                  <input class="form-control mb-2" type="text" id="functionNameSearch" data-toggle="dropdown" aria-haspopup="true"
+                  autocomplete="off" aria-expanded="false" formControlName="functionNameSearch" (keyup)="onFunctionSearch()">
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                    <a class="dropdown-item" (click)="onAddFunctionSelected(function)" *ngFor="let function of functionsFound">{{ function.name }}</a>
+                  </div>
+                </div>
+                <button type="button" *ngIf="selectedAddFunction" class="btn btn-outline-success"
+                (click)="onAddSelectedFunction()">Add</button>
+               </div>
+          </div>
+          <div class="col">
+              <label class="col-sm-2 col-form-label">AccessRights</label>
+              <ul class="list-group">
+                <li class="list-group-item" [class.active]="right === selectedAccessRight" (click)="onSelectAccessRight(right)"
+                *ngFor="let right of selectedRole?.accessRights">{{ right.name }}</li>
+              </ul>
+              <div class="form-row">
+                <button type="button" *ngIf="selectedAccessRight" class="btn btn-outline-danger" (click)="onDeleteAccessRight()"> - </button>
+                <button type="button" *ngIf="selectedRole" class="btn btn-outline-success"  (click)="onAddAccessRight()">+</button>
+                <div class="dropdown" *ngIf="addAccessRightPressed">
+                  <input class="form-control mb-2" type="text" id="accessRightNameSearch" data-toggle="dropdown" aria-haspopup="true"
+                  autocomplete="off" aria-expanded="false" formControlName="accessRightNameSearch" (keyup)="onAccessRightSearch()">
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                    <a class="dropdown-item" (click)="onAddAccessRightSelected(right)" *ngFor="let right of accessRightsFound">{{ right.name }}</a>
+                  </div>
+                </div>
+                <button type="button" *ngIf="selectedAddAccessRight" class="btn btn-outline-success"
+                (click)="onAddSelectedAccessRight()">Add</button>
+               </div>
+               <label class="col-sm-2 col-form-label">DeniedRights</label>
+               <ul class="list-group">
+                  <li class="list-group-item" [class.active]="right === selectedDeniedRight" (click)="onSelectDeniedRight(right)"
+                  *ngFor="let right of selectedRole?.deniedRights">{{ right.name }}</li>
+                </ul>
+                <div class="form-row">
+                  <button type="button" *ngIf="selectedDeniedRight" class="btn btn-outline-danger" (click)="onDeleteDeniedRight()"> - </button>
+                  <button type="button" *ngIf="selectedRole" class="btn btn-outline-success"  (click)="onAddDeniedRight()">+</button>
+                  <div class="dropdown" *ngIf="addDeniedRightPressed">
+                    <input class="form-control mb-2" type="text" id="deniedRightNameSearch" data-toggle="dropdown" aria-haspopup="true"
+                    autocomplete="off" aria-expanded="false" formControlName="deniedRightNameSearch" (keyup)="onDeniedRightSearch()">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+                      <a class="dropdown-item" (click)="onAddDeniedRightSelected(right)" *ngFor="let right of deniedRightsFound">{{ right.name }}</a>
+                    </div>
+                  </div>
+                  <button type="button" *ngIf="selectedAddDeniedRight" class="btn btn-outline-success"
+                  (click)="onAddSelectedDeniedRight()">Add</button>
+                 </div>
+          </div>
+        </div>
+      </div>
+    </form>
+

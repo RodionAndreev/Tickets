@@ -1,0 +1,40 @@
+<div class="container">
+    <form class="form-horizontal" [formGroup]="userSettingsProfile">  
+  <div class="form-group">
+      
+      <label class="col-md-4 control-label" for="textinput1">Имя</label>
+      <div class="col-md-4">
+        <input
+        formControlName="first"
+        class="form-control input-md"
+          type="text"
+          placeholder=""
+          id="textinput1"
+          [(ngModel)]="user.firstName"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput3">Фамилия</label>
+      <br />
+      <div class="col-md-4">
+        <input
+        formControlName="last"
+          type="text"
+          class="form-control input-md"
+          placeholder=""
+          id="textinput3"
+          [(ngModel)]="user.lastName"
+        />
+      </div>
+
+    </div>
+    <h6 *ngIf="!response">
+        Имя и фамилия не могут быть пустыми
+    </h6>
+    <div  class="col-md-4">
+      <button class="btn btn-primary" (click)="onPut()" type="submit">Сохранить</button>
+    </div>
+  </form>
+</div>

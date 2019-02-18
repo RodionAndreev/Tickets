@@ -1,0 +1,8 @@
+﻿using Logging.Logic.Models.Filters;
+
+namespace Logging.Web.Validators.Filters
+{
+	public class ErrorLogsFilterValidator : BaseFilterValidator<ErrorLogsFilter>
+	{
+	}
+}

@@ -1,0 +1,37 @@
+<main role="main">
+    <div class="container">
+        <br/>
+        <br/>
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+                <a class="navbar-brand" [routerLink]="['/admin']" routerLinkActive="active">Админка</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarsExample02">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Логи</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/errors']" routerLinkActive="active">Ошибки</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/payments']" routerLinkActive="active">Платежи</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/queries']" routerLinkActive="active">Поиск</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/accounts']" routerLinkActive="active">Аккаунты</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/tickets']" routerLinkActive="active">Билеты</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/deals']" routerLinkActive="active">Сделки</a>
+                    </div>
+                  </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" [routerLink]="['/admin/users']" routerLinkActive="active">Пользователи
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" [routerLink]="['/statistic']" routerLinkActive="active">
+                        <a class="nav-link">Статистика</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <router-outlet></router-outlet>
+    </div>
+</main>

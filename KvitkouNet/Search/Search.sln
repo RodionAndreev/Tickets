@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search.Web", "Search.Web\Search.Web.csproj", "{89BCD539-E42D-4923-83AC-9DF6848DA362}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search.Data", "Search.Data\Search.Data.csproj", "{02339500-5936-4E59-811C-A95E213ABAAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search.Logic", "Search.Logic\Search.Logic.csproj", "{876707D4-E093-42EA-931C-10198B453ED5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search.Logic.Common", "Search.Logic.Common\Search.Logic.Common.csproj", "{1E6B471B-B34C-459A-BF88-9B0C7F5B9732}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search.Tests", "Search.Tests\Search.Tests.csproj", "{0AE52402-13F6-4CE4-A5EA-3586B9994728}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KvitkouNet.Messages", "..\Gateway\KvitkouNet.Messages\KvitkouNet.Messages.csproj", "{775BE9B7-CA08-4F78-9241-309FD1F6CDF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89BCD539-E42D-4923-83AC-9DF6848DA362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89BCD539-E42D-4923-83AC-9DF6848DA362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89BCD539-E42D-4923-83AC-9DF6848DA362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89BCD539-E42D-4923-83AC-9DF6848DA362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02339500-5936-4E59-811C-A95E213ABAAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02339500-5936-4E59-811C-A95E213ABAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02339500-5936-4E59-811C-A95E213ABAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02339500-5936-4E59-811C-A95E213ABAAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876707D4-E093-42EA-931C-10198B453ED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876707D4-E093-42EA-931C-10198B453ED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876707D4-E093-42EA-931C-10198B453ED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876707D4-E093-42EA-931C-10198B453ED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6B471B-B34C-459A-BF88-9B0C7F5B9732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6B471B-B34C-459A-BF88-9B0C7F5B9732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6B471B-B34C-459A-BF88-9B0C7F5B9732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6B471B-B34C-459A-BF88-9B0C7F5B9732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE52402-13F6-4CE4-A5EA-3586B9994728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE52402-13F6-4CE4-A5EA-3586B9994728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE52402-13F6-4CE4-A5EA-3586B9994728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE52402-13F6-4CE4-A5EA-3586B9994728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{775BE9B7-CA08-4F78-9241-309FD1F6CDF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{775BE9B7-CA08-4F78-9241-309FD1F6CDF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{775BE9B7-CA08-4F78-9241-309FD1F6CDF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{775BE9B7-CA08-4F78-9241-309FD1F6CDF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83755F8D-77C0-4D4E-856D-343341F89A18}
+	EndGlobalSection
+EndGlobal

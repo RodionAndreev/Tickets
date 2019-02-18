@@ -1,0 +1,52 @@
+<main role="main">
+    <form [formGroup]="accountLogsFormGroup" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="dateFrom">Начальная дата:</label>
+              <input type="date" class="form-control" id="dateFrom" formControlName="dateFrom">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="dateTo">Конечная дата:</label>
+                <input type="date" class="form-control" id="dateTo" formControlName="dateTo">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="userId">Id пользователя:</label>
+              <input type="text" class="form-control" id="userId" formControlName="userId" placeholder="userId">
+            </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="userName">Имя пользователя:</label>
+                <input type="text" class="form-control" id="userName" formControlName="userName" placeholder="userName">
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="email">Email:</label>
+                  <input type="text" class="form-control" id="email" formControlName="email" placeholder="email">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="type">Тип:</label>
+                <input type="number" class="form-control" id="type" formControlName="type" placeholder="type">
+              </div>
+            </div>
+       <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+<div class="album py-5 bg-light">
+  <table mdbTable >
+    <thead>
+      <tr>
+        <th *ngFor="let head of accountLogTableHeaders" scope="col">{{head}} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let el of accountLogs">
+        <th scope="row">{{el.id}}</th>
+        <th>{{el.eventDate}}</th>
+        <th>{{el.userId}}</th>
+        <th>{{el.userName}}</th>
+        <th>{{el.email}}</th>
+        <th>{{el.type}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</main>

@@ -1,0 +1,17 @@
+.statistic {
+  margin: 70px;
+}
+
+.btn {
+  margin: 2px;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-flex-setings, .container-flex-part {
+  width: auto;
+}
+

@@ -1,0 +1,56 @@
+<div class="container">
+  <form
+    class="form-horizontal"
+    [formGroup]="searchUserForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <fieldset>
+      <!-- Button -->
+      <div class="form-group">
+        <div class="col-md-8">
+          <a
+            class="btn btn-outline-info"
+            [routerLink]="['/search-ticket']"
+            routerLinkActive="active"
+            >Tickets</a
+          >
+          &nbsp; <a class="btn btn-info">Users</a>
+        </div>
+      </div>
+
+      <!-- Form Name -->
+      <legend>Search Users</legend>
+
+      <div *ngIf="error">
+        Unable to get the last search.
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Rating</label>
+        <div class="col-md-4">
+          <input
+            formControlName="minRating"
+            type="number"
+            placeholder="Enter Min Rating"
+            class="form-control input-md"
+          />
+        </div>
+      </div>
+
+      <!-- Button -->
+
+      <div class="form-group">
+          <div class="col-md-8">
+            <button type="submit" class="btn btn-info">
+              Search
+            </button>
+            &nbsp;
+            <button class="btn btn-info" *ngIf="authenticated" (click)="previousSearch()">
+              Previous search
+            </button>
+          </div>
+        </div>
+    </fieldset>
+  </form>
+</div>

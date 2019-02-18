@@ -1,0 +1,53 @@
+<main role="main" class="text-center">
+  <form class="form-registration" [formGroup]="registrationForm"  (ngSubmit)="registry()">
+
+    <div class="form-group">
+      <img class="mb-4" src="/docs/4.2/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
+      <label for="inputLogin" class="sr-only">Login</label>
+      <input type="text" formControlName="username" class="form-control" placeholder="Login"/>
+      <div class="error"
+      *ngIf="submitted && registrationForm.get('username').getError('required') && registrationForm.get('username').touched">
+      Login requered </div>
+      <div *ngIf="registrationForm.get('username').getError('minlength')">Login must be at least 4 characters</div>
+      <div *ngIf="registrationForm.get('username').getError('maxlength')">Login must be no more than 15 characters</div>
+      <div *ngIf="registrationForm.get('username').getError('pattern')">Login can contain only letters, digits, "_" and "-"</div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="text" formControlName="email" class="form-control" placeholder="Email address"/>
+      <div class="error"
+          *ngIf="submitted && registrationForm.get('email').getError('required') && registrationForm.get('email').touched">
+          Email requered </div>
+      <div *ngIf="registrationForm.get('email').getError('email')">Email address must be in the form of EMAIL@PORTAL.COM</div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="text" formControlName="password" class="form-control" placeholder="Password"/>
+          <div class="error"
+          *ngIf="submitted && registrationForm.get('password').getError('required') && registrationForm.get('password').touched">
+          Password requered </div>
+          <div *ngIf="registrationForm.get('password').getError('minlength')">Password must be at least 6 characters</div>
+          <div *ngIf="registrationForm.get('password').getError('maxlength')">Password must be no more than 12 characters</div>
+          <div *ngIf="registrationForm.get('password').getError('pattern')">Password can contain only letters, digits, "_" and "-"</div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
+      <input type="text" formControlName="confirmpassword" class="form-control" placeholder="Confirm Password"/>
+          <div *ngIf=checkPasswords(registrationForm)>Password does not match</div>
+    </div>
+
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <div class="form-group">
+    <button [disabled]="loading" class="btn btn-lg btn-primary btn-block" type="submit" (click)=registry()>Register</button>
+    <button class="btn btn-lg btn-primary btn-block" [routerLink]="['/login']" type="submit" >Cancel</button>
+    </div>
+  </form>
+</main>

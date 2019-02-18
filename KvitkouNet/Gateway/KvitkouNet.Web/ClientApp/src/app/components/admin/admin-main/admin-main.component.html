@@ -1,0 +1,48 @@
+<main>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Добро пожаловать на панель администратора!</h1>
+      <p>Здесь вы можете просмотреть имеющиеся логи, информацию о пользователях, статистику.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Логи</h2>
+        <p>Просмотр имеющихся логов.
+          </p>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Логи</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/errors']" routerLinkActive="active">Ошибки</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/payments']" routerLinkActive="active">Платежи</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/queries']" routerLinkActive="active">Поиск</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/accounts']" routerLinkActive="active">Аккаунты</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/tickets']" routerLinkActive="active">Билеты</a>
+                      <a class="dropdown-item" [routerLink]="['/admin/logs/deals']" routerLinkActive="active">Сделки</a>
+                    </div>
+      </div>
+      <div class="col-md-4">
+        <h2>Пользователи</h2>
+        <p>Просмотр информации о пользователях, а также ее редактирование.
+          </p>
+        <p>
+          <a class="btn btn-secondary" routerLink="/admin/users" role="button">Перейти &raquo;</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h2>Статистика</h2>
+        <p>Просмотр статистики.</p>
+        <p>
+          <a class="btn btn-secondary" routerLink="/statistic" role="button">Перейти &raquo;</a>
+        </p>
+      </div>
+    </div>
+
+    <hr>
+
+  </div>
+  <!-- /container -->
+</main>

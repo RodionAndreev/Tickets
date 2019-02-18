@@ -1,0 +1,138 @@
+<div class="statistic">
+  <div class="container-flex">
+    <div class="container-flex-part">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="clickButton(0)"
+        role="button"
+      >
+        Статистика посещения сайта &raquo;
+      </button>
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="clickButton(1)"
+        role="button"
+      >
+        Статистика Online &raquo;
+      </button>
+      <button
+      type="button"
+      class="btn btn-success"
+      (click)="clickButton(2)"
+      role="button"
+    >
+      Статистика Пользователи &raquo;
+    </button>
+    </div>
+    <div class="container-flex-setings">
+      <button
+        type="button"
+        class="btn btn-info"
+        (click)="clickRange(1)"
+        role="button"
+      >
+        За 1 год
+      </button>
+      <button
+        type="button"
+        class="btn btn-info"
+        (click)="clickRange(2)"
+        role="button"
+      >
+        За 2 года
+      </button>
+      <button
+        type="button"
+        class="btn btn-info"
+        (click)="clickRange(3)"
+        role="button"
+      >
+        За 3 года
+      </button>
+    </div>
+  </div>
+  <p></p>
+  <div>
+    <dx-chart
+      id="chart"
+      [dataSource]="userList"
+      palette="soft"
+      title="Статистика посещения за период"
+      *ngIf="statisticIndex == 0"
+    >
+      <dxi-series
+        valueField="countRegistered"
+        name="Зарегистрированных"
+      ></dxi-series>
+      <dxi-series valueField="countGuest" name="Гостей"></dxi-series>
+
+      <dxo-common-series-settings
+        argumentField="createTime"
+        type="bar"
+        [ignoreEmptyPoints]="true"
+      >
+      </dxo-common-series-settings>
+      <dxo-legend verticalAlignment="bottom" horizontalAlignment="center">
+      </dxo-legend>
+      <dxo-export [enabled]="true"></dxo-export>
+    </dx-chart>
+
+    <dx-pie-chart
+      id="pie"
+      title="online"
+      palette="bright"
+      [dataSource]="areas"
+      *ngIf="statisticIndex == 1"
+    >
+      <dxi-series argumentField="legend" valueField="count">
+        <dxo-label [visible]="true">
+          <dxo-connector [visible]="true" [width]="1"></dxo-connector>
+        </dxo-label>
+      </dxi-series>
+      <dxo-export [enabled]="true"></dxo-export>
+    </dx-pie-chart>
+  </div>
+
+  <dx-data-grid
+    [dataSource]="gridDataSource"
+    [remoteOperations]="true"
+    showBorders="true"
+    [height]="400"
+    [wordWrapEnabled]="true"
+    [allowColumnResizing]="true"
+    *ngIf="statisticIndex == 2"
+  >
+    <dxo-sorting mode="multiple"></dxo-sorting>
+    <dxo-state-storing
+      [enabled]="true"
+      type="localStorage"
+      storageKey="organisations"
+    ></dxo-state-storing>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>
+    <dxo-column-chooser
+      [enabled]="true"
+      mode="dragAndDrop"
+    ></dxo-column-chooser>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-search-panel [visible]="true" [width]="250"></dxo-search-panel>
+    <dxo-export
+      [enabled]="true"
+      fileName="Пользователи"
+      [allowExportSelectedData]="true"
+    ></dxo-export>
+
+    <dxi-column dataField="userName" caption="Login"> </dxi-column>
+    <dxi-column dataField="messagesCount" caption="Сообщений"> </dxi-column>
+    <dxi-column dataField="ratingPositive" caption="Негативный рейтинг">
+    </dxi-column>
+    <dxi-column dataField="ratingNegative" caption="Позитивный рейтинг">
+    </dxi-column>
+    <dxi-column dataField="registrationDate" caption="Дата регистрации">
+    </dxi-column>
+    <dxi-column dataField="lastOnWebsite" caption="Дата последнего посещения">
+    </dxi-column>
+  </dx-data-grid>
+</div>

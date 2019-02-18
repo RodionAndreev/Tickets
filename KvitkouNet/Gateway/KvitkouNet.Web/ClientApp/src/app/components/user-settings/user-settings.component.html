@@ -1,0 +1,28 @@
+<main>
+    <div class="jumbotron" >
+       <div class="alert alert-danger" role="alert" *ngIf="!authenticated">
+            Not logged in user has no rights to add a ticket. Please
+            <a [routerLink]="['/login']">login</a>.
+          </div>
+          <!--*ngIf="authenticated"-->
+      <div class="row" >
+        <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1">
+            <ul class="nav navbar-light navbar-toggleable-sm">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/settings/profile']" routerLinkActive="active">
+                  Profile
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/settings/advanced']" routerLinkActive="active">
+                  Advanced
+                </a>
+              </li>
+            </ul>
+        </div>
+        <div class="col-sm-10">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </main>

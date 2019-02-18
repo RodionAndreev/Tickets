@@ -1,0 +1,82 @@
+<div class="main-div">
+<div class="main_section">
+   <div class="container">
+      <div class="chat_container">
+
+         <div class="row mb-2">
+         <div class="col-sm-9 message_section">
+		 <div class="row">
+		 <div class="new_message_head">
+		 <div class="pull-left"><button><i class="fa fa-plus-square-o" aria-hidden="true"></i> {{messageNotExist}} {{roomCreated}} </button></div>
+		 </div><!--new_message_head-->
+
+		 <div class="chat_area">
+		 <ul class="list-unstyled">
+		 <li class="left clearfix">
+
+      <span class="chat-img1 pull-left">
+                     <img src="https://lh6.googleusercontent.com/-y-MY2satK-E/AAAAAAAAAAI/AAAAAAAAAJU/ER_hFddBheQ/photo.jpg" alt="User Avatar" class="img-circle">
+                     </span>
+                     <div class="chat-body1 clearfix">
+                      <ul>
+                        <li *ngFor="let message of messagesForHub">
+                          <p>
+                                  {{'сообщение было отправлено пользователем № ' + message.userId
+                                  + ' текст сообщения: ' + message.text
+                                  + ' время отправки: ' + message.sendedTime }}
+                                </p>
+
+                        </li>
+                      </ul>
+
+                     </div>
+                  </li>
+			 </ul>
+     </div><!--chat_area-->
+
+          <div class="message_write">
+
+       <input type="text" #textMessage>
+
+		 <div class="chat_bottom">
+ <div class="col">
+  <button type="submit" class="btn btn-primary mb-2" (click)="onAddMessage(textMessage.value)">Send</button>
+  <button type="submit" class="btn btn-primary mb-2" (click)="onGetUserSetting()">Get info user Settings</button>
+  <button type="submit" class="btn btn-primary mb-2" (click)="onSearchMessage(textMessage.value)">Search message</button>
+  <button type="submit" class="btn btn-primary mb-2" (click)="onCreateRoom()">Create main Room</button>
+
+ </div>
+
+</div>
+     </div>
+
+		 </div>
+         </div> <!--message_section-->
+         <div class="col-sm-3 chat_sidebar">
+            <div class="row">
+
+
+                 <div class="member_list">
+
+                    <ul class="list-unstyled">
+                     <li *ngFor="let message of messagesOnTemplate">
+                       <p>
+                               {{message.text + ' отправлено в ' + message.sendedTime}}
+                             </p>
+
+                     </li>
+
+                    </ul>
+                 </div>
+               </div>
+              </div>
+         <div class="p-4">
+           <div>пользовательские настрйоки:</div>
+          <div>{{'User settings =' + userSettins.id + ' '+ userSettins.backgroundColor + ' '+ userSettins.sound + ' '+ userSettins.hideChat + ' '+ userSettins.tab + ' '+ userSettins.toast + ' '+ userSettins.viewTimestampsMessage}}</div>
+
+        </div>
+        </div>
+      </div>
+   </div>
+</div>
+</div>
